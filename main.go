@@ -5,6 +5,7 @@ import (
 	"mux-mysql-api/configs"
 	"mux-mysql-api/routes"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
 )
@@ -16,5 +17,5 @@ func main() {
 
 	routes.BookRoute(router)
 
-	log.Fatal(http.ListenAndServe(":6000", router))
+	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), router))
 }
